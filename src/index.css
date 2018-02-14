@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0.2em;
+	font-size: 10px;
+	background-color: white;
+	font-family: 'Poppins', sans-serif;
+	overflow-x: hidden;
+}
+
+.App {
+	min-height: 100vh;
+	position: relative;
+}
+
+.MainHeader {
+	text-align: center;
+	margin: 0;
+	padding: 0.5em;
+	font-size: 30px;
+}
+
+.MainHeader .first {
+	color: #00a8ff;
+	border-top: 4px solid #00a8ff;
+	border-left: 4px solid #00a8ff;
+	border-bottom: 4px solid #00a8ff;
+	padding-left: 0.3em;
+	border-top-left-radius: 0.5em;
+	position: relative;
+}
+.MainHeader .first:before {
+	content: '';
+	position: absolute;
+	height: 0.5em;
+	width: 0.1em;
+	border-left: 4px solid #00a8ff;
+	bottom: -10px;
+	left: -4px;
+	background-color: white;
+}
+
+.MainHeader .first:after {
+	content: '';
+	position: absolute;
+	background-color: white;
+	height: 1em;
+	width: 4px;
+	left: -3px;
+	bottom: -25px;
+	transform: rotate(30deg);
+}
+
+.MainHeader .second {
+	color: #c23616;
+	border-top: 4px solid #c23616;
+	border-bottom: 4px solid #c23616;
+}
+
+.MainHeader .third {
+	color: #4cd137;
+	border-top: 4px solid #4cd137;
+	border-right: 4px solid #4cd137;
+	border-bottom: 4px solid #4cd137;
+	margin-right: 0.3em;
+	padding-right: 0.3em;
+	border-top-right-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
+}
+
+.MainHeader .PoweredBySubHead {
+	display: block;
+	padding-top: 0.75em;
+	font-size: 0.3em;
+}
+
+.MainHeaderLink {
+	text-decoration: none;
+	color: black;
+}
+
+.PoweredBySubHead a {
+	text-decoration: none;
+	color: #4cd137;
+}
+
+.SearchEngine {
+	font-size: 1.5em;
+}
+
+.SearchContainer, .MovieDetails {
+	margin-top: 2px;
+	width: 100%;
+	height: 100%;
+}
+
+.SearchContainer {
+	font-size: 1em;
+}
+
+.SearchList {
+	width: 100%;
+	min-height: 75vh;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-bottom: 3.5em;
+}
+
+.SearchForm {
+	text-align: center;
+	height: 7em;
+	max-width: 20em;
+	position: relative;
+	left: 50%;
+	top: 2em;
+	transform: translate(-50%, -2em);
+	display: flex;
+	align-items: center;
+}
+
+.SearchForm input {
+	line-height: 3em;
+	padding: 0.5em;
+	height: 3em;
+	width: 15em;
+	border: 3px solid #00a8ff;
+	border-right: none;
+	font-family: 'Poppins', sans-serif;
+}
+
+.SearchForm button, .BackButton {
+	border: 3px solid #00a8ff;
+	background-color: white;
+	height: 3em;
+	width: 6em;
+	padding: 0.5em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.SearchForm button span, .BackButton span {
+	position: relative;
+	z-index: 1;
+	color: black;
+	font-weight: 700;
+	font-family: 'Poppins', sans-serif;
+}
+
+.SearchForm button:before, .BackButton:before {
+	content: '';
+	width: 12em;
+	height: 3em;
+	text-align: center;
+	background-color: #00a8ff;
+	position: absolute;
+	top: 0;
+	left: -6em;
+	transform: scaleX(0);
+	transition: all 0.2s ease-in-out 0s;
+}
+
+.SearchForm button:hover:before, .BackButton:hover:before {
+	transform: scaleX(1);
+}
+
+.SearchForm button:hover span, .BackButton:hover span {
+	color: black;
+}
+
+.SearchForm h3 {
+	margin: 0;
+}
+
+.SortBy {
+	width: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.SortBy button {
+	text-decoration: none;
+	font-weight: 700;
+	color: #00a8ff;
+	transition: .3s ease;
+	background: none;
+	border: none;
+	font-family: 'Poppins', sans-serif;
+}
+
+.SortBy button:hover {
+	color: #c23616;
+}
+
+.PageControllers {
+	position: absolute;
+	bottom: 1%;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.PageControllers button {
+	border: none;
+	height: 2.5em;
+	width: 2.5em;
+	color: white;
+	background-color: #00a8ff;
+	font-weight: 700;
+}
+
+.PageControllers button:nth-of-type(odd) {
+	cursor: pointer;
+	transition: .3s ease-in-out;
+} 
+
+.PageControllers button:nth-of-type(odd):hover {
+	background-color: #c23616;
+}
+
+.SearchListItem {
+	display: flex;
+	list-style-type: none;
+	width: calc(25% - 20px);
+	position: relative;
+	margin: 10px;
+	background-color: #00a8ff;
+	max-height: 185px;
+	transition: .3s ease;
+	border: 2px solid white;
+}
+
+.SearchListItem:nth-child(2n) {
+	background-color: #c23616;
+}
+
+.SearchListItem:nth-child(4n) {
+	background-color: #4cd137;
+}
+
+.SearchListItem:hover {
+	box-shadow: 4px 4px 12px #718093;
+}
+
+.SearchListItem:before {
+	content: "click for details";
+	text-shadow: 1px 1px 1px grey;
+	position: absolute;
+	z-index: 0;
+	height: 0;
+	bottom: 1.7em;
+	right: 0.5em;
+	background-color: white;
+	color: white;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.SearchListItem:hover:before {
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+.PosterW185 {
+	height: 18.1em;
+	width: 13em;
+}
+
+.PosterWrapper {
+	font-size: 10px;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+}
+
+.SearchList .MovieTitle span {
+	font-weight: 100;
+}
+
+.MovieTitle {
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 65%;
+	transform: translate(-50%, -65%);
+	color: white;
+	text-shadow: 2px 2px 2px black;
+}
+
+.MovieTitle p {
+	padding: 0;
+	margin: 0;
+}
+
+.MovieVotes {
+	position: absolute;
+	top: 1%;
+	right: 1%;
+	text-align: center;
+	color: #3c6382;
+}
+
+.MovieVotes strong {
+	padding-left: 5px;
+	font-size: 1.25em;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+}
+
+.MovieVotes small {
+	color: black;
+	font-weight: 700;
+}
+
+.fa-star {
+	color: #e4bb24;
+}
+
+.fa-film {
+	font-size: 40px;
+}
+
+.disabled {
+	display: none;
+}
+
+.IMDbLink {
+	position: absolute;
+	top: 0.5%;
+	right: 1.5%;
+	color: #e4bb24;
+}
+
+.IMDbLink:before {
+	content: '';
+	background-color: black;
+	height: 20px;
+	width: 35px;
+	position: absolute;
+	top: 10px;
+	z-index: -1;
+}
+
+.MovieDetailsWrapper {
+	margin: 0 auto;
+	margin-top: 10em;
+	margin-bottom: 2em;
+	max-width: 94em;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	padding: 0.3em;
+	border: 5px solid #00a8ff;
+}
+
+.MovieDetailsWrapper .MovieVotes{
+	top: 4em;
+	right: 1.5%;
+	font-size: 1.2em;
+	text-shadow: 1px 1px 0 white;
+}
+
+.MovieDetailsWrapper .MovieVotes strong {
+	color: black;
+	text-shadow: 1px 1px 0 white;
+}
+
+.MovieDetailsLink {
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.MovieDetailsImageWrapper {
+	width: 35%;
+}
+
+.MovieDetailsImage img {
+	width: 100%;
+}
+
+.MovieDetailsInfo {
+	width: 65%;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 0.5em;
+	font-size: 15px;
+}
+
+.SpanRed {
+	background-color: #c23616;
+}
+
+.SpanBlue {
+	background-color: #00a8ff;
+}
+
+.SpanGreen {
+	background-color: #4cd137;
+}
+
+.BackButton {
+	position: absolute;
+	top: -4em;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 4em;
+	text-align: center;
+	font-size: 1.5em;
+	border: 3px solid #00a8ff;
+	text-decoration: none;
+	color: black;
+	font-weight: 700;
+}
+
+.MovieDetailsTitle {
+	font-size: 1.5em;
+	margin-top: 0;
+	max-width: 470px;
+}
+
+.MovieDetailsDate {
+	font-size: 0.7em;
+	font-weight: 100;
+}
+
+.MovieDetailsOriginalTitle {
+	font-size: 1em;
+	font-weight: 100;
+	font-style: italic;
+	max-width: 400px;
+}
+
+.MovieDetailsOriginalTitle span {
+	font-style: normal;
+	padding-left: 0.5em;
+}
+
+.MovieDetailsRuntime {
+	font-weight: 100;
+	font-size: 1em;
+}
+
+.MovieDetailsOverview {
+	text-align: justify;
+}
+
+.MovieDetailsTable {
+	border-collapse: collapse;
+	font-size: 12px;
+}
+
+.MovieDetailsTable span {
+	padding: 5px;
+	margin-right: 3px;
+	line-height: 35px;
+	color: white;
+}
+
+.MovieDetailsTable td {
+	padding: 0.25em;
+}
+
+.Footer {
+	padding-top: 1em;
+	position: absolute;
+	bottom: 0;
+	right: 0.5%;
+	text-align: center;
+	align-items: center;
+}
+
+.Footer a {
+	color: black;
+	text-decoration: none;
+	color: #00a8ff;
+}
+
+@media only screen and (max-width: 1500px) {
+	.SearchListItem {
+		width: calc(33.33% - 20px);
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.SearchListItem {
+		width: calc(50% - 70px);
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.SearchListItem {
+		width: calc(100% - 20px);
+	}
+	.PageControllers {
+		bottom: 0;
+	}
+	.MovieDetailsInfo {
+		width: 100%;
+	}
+	.MovieDetailsImage {
+		width: 100%;
+	}
+
+	.MovieDetailsImageWrapper {
+		width: 100%;
+		text-align: center;
+	}
+
+	.MovieDetailsImage img {
+		height: auto;
+		width: auto;
+		max-height: 500px;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.MovieDetailsTitle, .MovieDetailsOriginalTitle, .MovieDetailsRuntime {
+		text-align: center;
+	}
+	.MovieDetailsTitle, .MovieDetailsOriginalTitle {
+		margin: 0 auto;
+	}
+	.MovieDetailsTable {
+		max-width: 100%;
+		font-size: 0.8em;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.MainHeader {
+		font-size: 2em;
+	}
+	.fa-film {
+		font-size: 1.75em;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.MainHeader {
+		font-size: 1.5em;
+	}
+	.MovieTitle {
+		font-size: 0.8em;
+		left: 70%;
+	}
+	.MovieVotes {
+		font-size: 0.8em;
+	}
+	.MovieDetailsInfo {
+		padding: 0.5em;
+	}
+	.MovieDetailsTable {
+		font-size: 0.7em;
+	}
+	.fa-film {
+		font-size: 1.5em;
+	}
+}
+
+@media only screen and (max-width: 285px) {
+	.SearchListItem {
+		width: calc(100% - 20px);
+	}
+}
