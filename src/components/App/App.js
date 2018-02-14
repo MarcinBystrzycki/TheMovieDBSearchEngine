@@ -13,8 +13,8 @@ const App = () => {
 		<Router>
 			<div className="App">
 				<MainHeader />
-				<Route exact path="/" component={SearchEngine} />
-				<Route path="/details/:id" component={MovieDetails} />
+				<Route exact path="/moviedb/" component={SearchEngine} />
+				<Route path="/moviedb/details/:id" component={MovieDetails} />
 				<Footer />
 			</div>
 		</Router>

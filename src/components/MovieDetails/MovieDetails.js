@@ -12,7 +12,7 @@ class MovieDetails extends Component {
 	}
 
 	componentDidMount() {
-		const API_KEY = "de2d1285a62e2c7e6a265f823daf2d06";
+		const API_KEY = 'de2d1285a62e2c7e6a265f823daf2d06';
 		const url = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${API_KEY}&language=en-US&append_to_response=credits`;
 
 		fetch(url)
@@ -29,6 +29,6 @@ class MovieDetails extends Component {
 			</div>
 		);
 	}
-};
+}
 
 export default MovieDetails;

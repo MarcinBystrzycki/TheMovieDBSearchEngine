@@ -18,6 +18,6 @@ const SearchForm = ({ handleChange, handleSearch, searchText, sortByName, sortDe
 			</div>
 		</div>
 	);
-}
+};
 
 export default SearchForm;

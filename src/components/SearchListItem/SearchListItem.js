@@ -7,7 +7,7 @@ const SearchListItem = ({ movie }) => {
 
 	return (
 		<li className="SearchListItem">
-			<Link className="MovieDetailsLink" to={'/details/' + movie.id}> 
+			<Link className="MovieDetailsLink" to={'/moviedb/details/' + movie.id}> 
 				<div className="PosterWrapper">
 					<img className="PosterW185" src={src} alt="#" />
 				</div>

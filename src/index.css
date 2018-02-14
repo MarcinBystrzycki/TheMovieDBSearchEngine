@@ -338,20 +338,23 @@ body {
 }
 
 .IMDbLink {
-	position: absolute;
-	top: 0.5%;
-	right: 1.5%;
-	color: #e4bb24;
+	padding: 0.35em;
+	text-decoration: none;
+	background-color: #e4bb24;
+	font-family: 'Poppins', sans-serif;
+	color: white;
 }
 
-.IMDbLink:before {
-	content: '';
-	background-color: black;
-	height: 20px;
-	width: 35px;
-	position: absolute;
-	top: 10px;
-	z-index: -1;
+.IMDbLink span {
+	color: black;
+	font-weight: 900;
+}
+
+.MovieVotesContainer {
+	width: 100%;
+	position: relative;
+	text-align: center;
+	margin-top: 2em;
 }
 
 .MovieDetailsWrapper {
@@ -366,16 +369,16 @@ body {
 	border: 5px solid #00a8ff;
 }
 
-.MovieDetailsWrapper .MovieVotes{
-	top: 4em;
-	right: 1.5%;
-	font-size: 1.2em;
-	text-shadow: 1px 1px 0 white;
+.MovieDetailsWrapper .MovieVotes {
+	position: static;
+	font-size: 2em;
 }
-
 .MovieDetailsWrapper .MovieVotes strong {
 	color: black;
-	text-shadow: 1px 1px 0 white;
+}
+.MovieDetailsWrapper .MovieVotes small {
+	color: grey;
+	font-weight: 100;
 }
 
 .MovieDetailsLink {
@@ -414,9 +417,8 @@ body {
 
 .BackButton {
 	position: absolute;
-	top: -4em;
-	left: 50%;
-	transform: translateX(-50%);
+	top: 0.2em;
+	right: 0.2em;
 	width: 4em;
 	text-align: center;
 	font-size: 1.5em;
@@ -429,7 +431,7 @@ body {
 .MovieDetailsTitle {
 	font-size: 1.5em;
 	margin-top: 0;
-	max-width: 470px;
+	max-width: calc(100% - 4em);
 }
 
 .MovieDetailsDate {
@@ -441,7 +443,7 @@ body {
 	font-size: 1em;
 	font-weight: 100;
 	font-style: italic;
-	max-width: 400px;
+	max-width: calc(100% - 4em);
 }
 
 .MovieDetailsOriginalTitle span {
@@ -460,6 +462,7 @@ body {
 
 .MovieDetailsTable {
 	border-collapse: collapse;
+	table-layout: fixed;
 	font-size: 12px;
 }
 
@@ -472,6 +475,7 @@ body {
 
 .MovieDetailsTable td {
 	padding: 0.25em;
+	margin-right: 0.25em;
 }
 
 .Footer {
@@ -515,6 +519,10 @@ body {
 		width: 100%;
 	}
 
+	.MovieDetailsWrapper {
+		margin-top: 5em;
+	}
+
 	.MovieDetailsImageWrapper {
 		width: 100%;
 		text-align: center;
@@ -532,10 +540,20 @@ body {
 	}
 	.MovieDetailsTitle, .MovieDetailsOriginalTitle {
 		margin: 0 auto;
+		max-width: 100%;
+	}
+	.MovieDetailsWrapper .MovieVotes {
+		margin: 0;
+	}
+	.MovieDetailsOriginalTitle {
+		font-size: 0.9em;
 	}
 	.MovieDetailsTable {
 		max-width: 100%;
 		font-size: 0.8em;
+	}
+	.MovieVotesContainer {
+		margin: 0;
 	}
 }
 
@@ -546,11 +564,16 @@ body {
 	.fa-film {
 		font-size: 1.75em;
 	}
+	.BackButton {
+		top: -3.6em;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
 
 @media only screen and (max-width: 400px) {
 	.MainHeader {
-		font-size: 1.5em;
+		font-size: 1.6em;
 	}
 	.MovieTitle {
 		font-size: 0.8em;
@@ -571,6 +594,9 @@ body {
 }
 
 @media only screen and (max-width: 285px) {
+	.MainHeader {
+		font-size: 1.4em;
+	}
 	.SearchListItem {
 		width: calc(100% - 20px);
 	}

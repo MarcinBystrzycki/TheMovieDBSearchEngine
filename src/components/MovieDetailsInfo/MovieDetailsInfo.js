@@ -2,7 +2,6 @@ import React from 'react';
 import MovieDetailsTable from '../MovieDetailsTable/MovieDetailsTable';
 import MovieVotes from '../MovieVotes/MovieVotes';
 import { Link } from 'react-router-dom';
-import FontAwesome from 'react-fontawesome';
 
 const MovieDetailsInfo = ({ selectedMovie }) => {
 	const src = selectedMovie.poster_path !== null ? `http://image.tmdb.org/t/p/w342${selectedMovie.poster_path}` : 'http://via.placeholder.com/250x342';
@@ -10,10 +9,17 @@ const MovieDetailsInfo = ({ selectedMovie }) => {
 
 	return (
 		<div className="MovieDetailsWrapper">
-			<MovieVotes movie={selectedMovie} />
 			<div className="MovieDetailsImageWrapper">
 				<div className="MovieDetailsImage">
 					<img src={src} alt=""/>
+					<div className="MovieVotesContainer">
+						<MovieVotes movie={selectedMovie} />
+						<p>
+							<a className="IMDbLink" href={imdbUrl} target="_blank">
+								check on <span>IMDb.com</span>
+							</a>
+						</p>
+					</div>
 				</div>
 			</div>
 			<div className="MovieDetailsInfo">
@@ -34,11 +40,8 @@ const MovieDetailsInfo = ({ selectedMovie }) => {
 					{selectedMovie.overview}
 				</p>
 				<MovieDetailsTable selectedMovie={selectedMovie} />
-				<a className="IMDbLink" href={imdbUrl} target="_blank">
-					<FontAwesome className="fab fa-imdb" name="imdb" size="3x"/>
-				</a>
 			</div>
-			<Link className="BackButton" to='/'><span>back</span></Link>
+			<Link className="BackButton" to='/moviedb/'><span>back</span></Link>
 		</div>
 	);
 };
